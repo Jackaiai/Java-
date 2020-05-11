@@ -1,0 +1,92 @@
+public class Rational {
+    private int num;
+    private int den;
+
+    public Rational() {
+
+    }
+
+    public Rational(int num, int den) {
+        this.num = num;
+        this.den = den;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public int getDen() {
+        return den;
+    }
+
+    public void setDen(int den) {
+        this.den = den;
+    }
+
+    public Rational add(Rational r) {
+        this.num = (this.num * r.den) + (r.num * this.den);
+        this.den = this.den * r.den;
+        return this;
+    }
+
+    public Rational sub(Rational r) {
+        this.num = (this.num * r.den) - (r.num * this.den);
+        this.den = this.den * r.den;
+        return this;
+    }
+
+    public Rational muti(Rational r) {
+        this.num *= r.num;
+        this.den *= r.den;
+        return this;
+    }
+    public Rational div(Rational r) {
+        this.num *= r.den;
+        this.den *= r.num;
+        return this;
+    }
+    public boolean equal(Rational r){
+        boolean x=true;
+        double a = (double) this.num/this.den;
+        double b = (double) r.num/r.den;
+        if ((a!=b))x=false;
+        return x;
+    }
+    public int compareTo(Rational r){
+        int i;
+        double a = (double) this.num/this.den;
+        double b = (double) r.num/r.den;
+        if (a==b)i=0;
+        else if (a>b) i=1;
+        else i=-1;
+        return i;
+    }
+
+    int Gcd(int a, int b) { // 求两个数的最大公约数
+        int i;
+        if (a == 0 || b == 0)
+            return 1;
+
+        for (i = a; i >= 1; i--) {
+            if (a % i == 0 && b % i == 0)
+                break;
+        }
+        return i;
+    }
+    @Override
+    public String toString() {
+        int a = num;
+        int b = den;
+        int f = Gcd(a, b);
+        num = num / f;
+        den = den / f;
+        // 上面代码为分数约分，需补上，要不然输出可能不是真分数
+        if (den < 0 | num < 0)
+            return "-" + num + "/" + Math.abs(den);
+        return num + "/" + den;
+    }
+}
