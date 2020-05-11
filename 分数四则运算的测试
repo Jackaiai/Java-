@@ -1,0 +1,67 @@
+public class TestRational {
+    public static void main(String[] args) {
+        Rational x= new Rational();
+        Rational x1= new Rational();
+
+        //x和x1相加
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        x.add(x1);
+        System.out.println("1/2 + 3/4= "+x.toString());
+        //x和x1相减
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        x.sub(x1);
+        System.out.println("1/2 - 3/4= "+x.toString());
+        //x和x1相乘
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        x.muti(x1);
+        System.out.println("1/2 * 3/4= "+x.toString());
+        //x和x1相除
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        x.div(x1);
+        System.out.println("1/2 / 3/4= "+x.toString());
+        //判断x和x1是否相等
+        //x等于x1
+        x.setNum(2);
+        x.setDen(2);
+        x1.setNum(4);
+        x1.setDen(4);
+        System.out.println("2/2等于4/4    "+x.equal(x1));
+        //x不等于x1
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        System.out.println("1/2不等于3/4    "+x.equal(x1));
+
+        //首先比较1/2和3/4的大小
+        x.setNum(1);
+        x.setDen(2);
+        x1.setNum(3);
+        x1.setDen(4);
+        System.out.println("首先比较1/2和3/4的大小    "+x.compareTo(x1));
+        //比较2/2和4/4的大小
+        x.setNum(2);
+        x.setDen(2);
+        x1.setNum(4);
+        x1.setDen(4);
+        System.out.println("比较2/2和4/4的大小    "+x.compareTo(x1));
+        //比较3/3和2/4的大小
+        x.setNum(3);
+        x.setDen(3);
+        x1.setNum(2);
+        x1.setDen(4);
+        System.out.println("比较3/3和2/4的大小    "+x.compareTo(x1));
+    }
+}
